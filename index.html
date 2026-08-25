@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CASE 140 | Investigation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CUSTOM MAGNIFYING GLASS CURSOR
+    ====================================================== -->
+
+    <div
+        class="custom-cursor"
+        id="customCursor"
+    >
+
+        <svg
+            class="cursor-glass"
+            viewBox="0 0 64 64"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <circle
+                cx="24"
+                cy="24"
+                r="17"
+                class="cursor-ring"
+            ></circle>
+
+            <path
+                d="M16 17 C18 13, 22 11, 26 11"
+                class="cursor-shine"
+            ></path>
+
+            <line
+                x1="36"
+                y1="36"
+                x2="53"
+                y2="53"
+                class="cursor-handle"
+            ></line>
+
+            <circle
+                cx="31"
+                cy="17"
+                r="3"
+                class="cursor-dot"
+            ></circle>
+
+        </svg>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <span class="status-dot"></span>
+
+            <span>
+                CASE FILE SYSTEM
+            </span>
+
+        </div>
+
+
+        <div class="case-number">
+
+            CASE
+            <strong>140</strong>
+
+        </div>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         INVESTIGATION BOARD
+    ====================================================== -->
+
+    <main
+        class="investigation-board"
+        id="board"
+    >
+
+
+        <div class="board-overlay"></div>
+
+
+
+        <!-- =================================================
+             INVESTIGATION STRINGS
+        ================================================== -->
+
+        <svg
+            class="strings"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="none"
+        >
+
+            <line
+                class="string"
+                x1="50"
+                y1="120"
+                x2="800"
+                y2="450"
+            ></line>
+
+
+            <line
+                class="string"
+                x1="1550"
+                y1="100"
+                x2="800"
+                y2="450"
+            ></line>
+
+
+            <line
+                class="string"
+                x1="100"
+                y1="780"
+                x2="800"
+                y2="450"
+            ></line>
+
+
+            <line
+                class="string"
+                x1="1500"
+                y1="780"
+                x2="800"
+                y2="450"
+            ></line>
+
+
+            <line
+                class="string"
+                x1="300"
+                y1="20"
+                x2="1300"
+                y2="850"
+            ></line>
+
+
+            <line
+                class="string"
+                x1="1200"
+                y1="20"
+                x2="400"
+                y2="850"
+            ></line>
+
+        </svg>
+
+
+
+        <!-- =================================================
+             CENTRAL CASE FILE
+        ================================================== -->
+
+        <section
+            class="case-file"
+            id="caseFile"
+        >
+
+            <div class="case-paper">
+
+                <span class="case-label">
+                    CONFIDENTIAL
+                </span>
+
+
+                <h1>
+                    CASEFILE
+                </h1>
+
+
+                <div class="case-divider"></div>
+
+
+                <p class="case-id">
+                    CASE 140 : RICHMOND HILL
+                </p>
+
+
+                <div class="case-info">
+
+                    <div>
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong>
+                            OPEN
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            CLASSIFICATION
+                        </span>
+
+                        <strong>
+                            RESTRICTED
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="main-pin"></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVIDENCE 01
+        ================================================== -->
+
+        <article
+            class="evidence evidence-1"
+            data-title="Burned Residence"
+            data-number="E-01"
+        >
+
+            <div class="photo-frame">
+
+                <img
+                    src="assets/evidence-1.jpg"
+                    alt="Burned residence"
+                >
+
+                <div class="photo-glare"></div>
+
+            </div>
+
+
+            <div class="evidence-note">
+
+                <span>
+                    E-01
+                </span>
+
+                <strong>
+                    BURNED RESIDENCE
+                </strong>
+
+                <small>
+                    LOCATION / NORTH DISTRICT
+                </small>
+
+            </div>
+
+
+            <div class="pin"></div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVIDENCE 02
+        ================================================== -->
+
+        <article
+            class="evidence evidence-2"
+            data-title="Casino Photograph"
+            data-number="E-02"
+        >
+
+            <div class="photo-frame">
+
+                <img
+                    src="assets/evidence-2.jpg"
+                    alt="Casino photograph"
+                >
+
+                <div class="photo-glare"></div>
+
+            </div>
+
+
+            <div class="evidence-note">
+
+                <span>
+                    E-02
+                </span>
+
+                <strong>
+                    CASINO PHOTOGRAPH
+                </strong>
+
+                <small>
+                    LOCATION / FREMONT
+                </small>
+
+            </div>
+
+
+            <div class="pin"></div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVIDENCE 03
+        ================================================== -->
+
+        <article
+            class="evidence evidence-3"
+            data-title="Unknown Document"
+            data-number="E-03"
+        >
+
+            <div class="photo-frame">
+
+                <img
+                    src="assets/evidence-3.jpg"
+                    alt="Unknown document"
+                >
+
+                <div class="photo-glare"></div>
+
+            </div>
+
+
+            <div class="evidence-note">
+
+                <span>
+                    E-03
+                </span>
+
+                <strong>
+                    UNKNOWN DOCUMENT
+                </strong>
+
+                <small>
+                    SOURCE / UNKNOWN
+                </small>
+
+            </div>
+
+
+            <div class="pin"></div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             EVIDENCE 04
+        ================================================== -->
+
+        <article
+            class="evidence evidence-4"
+            data-title="Recovered Evidence"
+            data-number="E-04"
+        >
+
+            <div class="photo-frame">
+
+                <img
+                    src="assets/evidence-4.jpg"
+                    alt="Recovered evidence"
+                >
+
+                <div class="photo-glare"></div>
+
+            </div>
+
+
+            <div class="evidence-note">
+
+                <span>
+                    E-04
+                </span>
+
+                <strong>
+                    RECOVERED EVIDENCE
+                </strong>
+
+                <small>
+                    STATUS / ANALYZING
+                </small>
+
+            </div>
+
+
+            <div class="pin"></div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             BOARD LABELS
+        ================================================== -->
+
+        <div class="board-label label-1">
+            EVIDENCE
+        </div>
+
+
+        <div class="board-label label-2">
+            CONNECTION
+        </div>
+
+
+        <div class="board-label label-3">
+            LEAD #07
+        </div>
+
+
+
+        <!-- =================================================
+             LOGIN BUTTON
+        ================================================== -->
+
+        <button
+            class="login-button"
+            id="loginButton"
+        >
+
+            <span class="login-icon">
+                →
+            </span>
+
+            <span class="login-text">
+                LOGIN TO CASE
+            </span>
+
+            <span class="login-line"></span>
+
+        </button>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="board-footer">
+
+            <span>
+                INVESTIGATION BOARD
+            </span>
+
+
+            <span>
+                LAST UPDATED — 22 AUG 2026
+            </span>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         EVIDENCE MODAL
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-btn"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+
+            <span id="modalNumber">
+                E-01
+            </span>
+
+
+            <h2 id="modalTitle">
+                Evidence
+            </h2>
+
+
+            <p>
+                Evidence selected from the investigation
+                board. Further investigation details can
+                be displayed here.
+            </p>
+
+
+            <button class="investigate-btn">
+                VIEW EVIDENCE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LOGIN MODAL
+    ====================================================== -->
+
+    <div
+        class="login-modal"
+        id="loginModal"
+    >
+
+        <div class="login-panel">
+
+
+            <button
+                class="login-close"
+                id="loginClose"
+            >
+                ×
+            </button>
+
+
+            <div class="login-top">
+
+                <span class="login-classification">
+                    CLASSIFIED ACCESS
+                </span>
+
+                <span class="login-case">
+                    CASE 140
+                </span>
+
+            </div>
+
+
+            <div class="login-heading">
+
+                <span>
+                    RESTRICTED
+                </span>
+
+                <h2>
+                    ACCESS FILE
+                </h2>
+
+                <p>
+                    Enter your investigator credentials
+                    to access the case.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <div class="input-group">
+
+                    <label for="username">
+                        INVESTIGATOR ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter investigator ID"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label for="password">
+                        ACCESS CODE
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter access code"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="access-button"
+                >
+
+                    <span>
+                        AUTHENTICATE
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+            <div
+                class="login-status"
+                id="loginStatus"
+            >
+                SYSTEM READY
+            </div>
+
+
+            <div class="login-footer">
+
+                <span>
+                    SECURE INVESTIGATION NETWORK
+                </span>
+
+                <span>
+                    ENCRYPTED ACCESS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

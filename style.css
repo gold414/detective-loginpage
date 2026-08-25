@@ -1,0 +1,1779 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background: #080706;
+    color: #e8dfcf;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   CUSTOM MAGNIFYING GLASS CURSOR
+===================================================== */
+
+.custom-cursor {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 55px;
+    height: 55px;
+
+    pointer-events: none;
+
+    z-index: 999999;
+}
+
+
+.cursor-glass {
+    width: 55px;
+    height: 55px;
+
+    overflow: visible;
+
+    transform: rotate(-8deg);
+
+    transition:
+        width 0.2s ease,
+        height 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.cursor-ring {
+    fill: rgba(255, 255, 255, 0.04);
+
+    stroke: #eee5d4;
+
+    stroke-width: 3;
+
+    filter:
+        drop-shadow(
+            0 0 4px rgba(255,255,255,0.35)
+        );
+}
+
+
+.cursor-shine {
+    fill: none;
+
+    stroke:
+        rgba(255,255,255,0.8);
+
+    stroke-width: 2.5;
+
+    stroke-linecap: round;
+}
+
+
+.cursor-handle {
+    stroke: #8a6540;
+
+    stroke-width: 7;
+
+    stroke-linecap: round;
+
+    filter:
+        drop-shadow(
+            0 2px 3px rgba(0,0,0,0.7)
+        );
+}
+
+
+.cursor-dot {
+    fill: #a52121;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(165,33,33,0.9)
+        );
+}
+
+
+.custom-cursor.cursor-evidence {
+    width: 68px;
+    height: 68px;
+}
+
+
+.custom-cursor.cursor-evidence .cursor-glass {
+    width: 68px;
+    height: 68px;
+
+    transform:
+        rotate(-8deg)
+        scale(1.05);
+}
+
+
+.custom-cursor.cursor-evidence .cursor-ring {
+    stroke: #c52d2d;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(197,45,45,0.65)
+        );
+}
+
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 35px;
+
+    background:
+        rgba(7, 6, 5, 0.90);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #b8ad9b;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #b21f1f;
+
+    box-shadow:
+        0 0 10px rgba(178,31,31,0.8);
+}
+
+
+.case-number {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #8e8577;
+}
+
+
+.case-number strong {
+    color: #ddd1bd;
+}
+
+
+.menu-btn {
+    width: 40px;
+    height: 40px;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.menu-btn span {
+    width: 16px;
+    height: 1px;
+
+    background: #d6cbb8;
+}
+
+
+
+/* =====================================================
+   INVESTIGATION BOARD
+===================================================== */
+
+.investigation-board {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background-image:
+        url("assets/board.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    isolation: isolate;
+}
+
+
+.board-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.40),
+            transparent 45%,
+            rgba(0,0,0,0.40)
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,0.50),
+            transparent 45%
+        );
+}
+
+
+
+/* =====================================================
+   STRINGS
+===================================================== */
+
+.strings {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.string {
+    stroke: #8f1010;
+
+    stroke-width: 2;
+
+    opacity: 0.9;
+
+    filter:
+        drop-shadow(
+            0 1px 2px rgba(0,0,0,0.8)
+        );
+}
+
+
+
+/* =====================================================
+   CASE FILE
+===================================================== */
+
+.case-file {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 470px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-1deg);
+
+    z-index: 10;
+}
+
+
+.case-paper {
+    position: relative;
+
+    padding:
+        70px 45px 55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9c9a7,
+            #efe3c4 50%,
+            #cdb98d
+        );
+
+    color: #29231c;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,0.55),
+
+        inset 0 0 50px
+        rgba(80,50,20,0.12);
+
+    clip-path:
+        polygon(
+            1% 3%,
+            97% 0%,
+            100% 96%,
+            3% 100%,
+            0% 8%
+        );
+}
+
+
+.case-label {
+    display: block;
+
+    text-align: center;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+
+    opacity: 0.65;
+}
+
+
+.case-paper h1 {
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 74px;
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+
+.case-divider {
+    width: 80px;
+    height: 2px;
+
+    margin:
+        25px auto 16px;
+
+    background: #33291f;
+}
+
+
+.case-id {
+    text-align: center;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+}
+
+
+.case-info {
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid rgba(50,40,30,0.3);
+
+    padding-top: 20px;
+}
+
+
+.case-info div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.case-info span {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.6;
+}
+
+
+.case-info strong {
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 12px;
+}
+
+
+.main-pin {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    top: -10px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white 0 5%,
+            #aaa 7%,
+            #777 45%,
+            #222 100%
+        );
+
+    box-shadow:
+        0 4px 8px rgba(0,0,0,0.6);
+}
+
+
+
+/* =====================================================
+   EVIDENCE
+===================================================== */
+
+.evidence {
+    position: absolute;
+
+    width: 260px;
+
+    z-index: 5;
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        filter 0.45s ease,
+        opacity 0.3s ease;
+
+    transform-origin: center;
+}
+
+
+.evidence-1 {
+    left: 7%;
+    top: 25%;
+
+    transform:
+        rotate(-7deg);
+}
+
+
+.evidence-2 {
+    right: 7%;
+    top: 25%;
+
+    transform:
+        rotate(7deg);
+}
+
+
+.evidence-3 {
+    left: 13%;
+    bottom: 5%;
+
+    transform:
+        rotate(5deg);
+}
+
+
+.evidence-4 {
+    right: 11%;
+    bottom: 5%;
+
+    transform:
+        rotate(-6deg);
+}
+
+
+
+/* =====================================================
+   PHOTO FRAME
+===================================================== */
+
+.photo-frame {
+    position: relative;
+
+    padding: 10px;
+
+    background: #ddd3c2;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.6);
+
+    overflow: hidden;
+}
+
+
+.photo-frame img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        sepia(15%)
+        contrast(1.05);
+
+    transition: 0.5s ease;
+}
+
+
+.photo-frame::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 28px;
+
+    top: -15px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(195,180,146,0.8);
+
+    opacity: 0.8;
+}
+
+
+.photo-glare {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 30%,
+            rgba(255,255,255,0.25),
+            transparent 60%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition: 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+
+/* =====================================================
+   EVIDENCE TEXT
+===================================================== */
+
+.evidence-note {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin-top: 10px;
+
+    padding: 0 5px;
+
+    color: #e3d7c0;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.9);
+}
+
+
+.evidence-note span {
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    color: #a92727;
+
+    letter-spacing: 2px;
+}
+
+
+.evidence-note strong {
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+.evidence-note small {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #aaa091;
+}
+
+
+
+/* =====================================================
+   PINS
+===================================================== */
+
+.pin {
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    top: -7px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white,
+            #999 25%,
+            #333 70%
+        );
+
+    box-shadow:
+        0 4px 7px rgba(0,0,0,0.7);
+}
+
+
+
+/* =====================================================
+   EVIDENCE HOVER
+===================================================== */
+
+.evidence:hover {
+    z-index: 100;
+
+    transform:
+        translateY(-25px)
+        scale(1.18)
+        rotate(0deg);
+
+    filter:
+        drop-shadow(
+            0 30px 35px
+            rgba(0,0,0,0.8)
+        );
+}
+
+
+.evidence:hover img {
+    filter:
+        grayscale(10%)
+        sepia(10%)
+        contrast(1.08);
+
+    transform:
+        scale(1.03);
+}
+
+
+.evidence:hover .photo-glare {
+    transform:
+        translateX(120%);
+}
+
+
+
+/* =====================================================
+   OTHER EVIDENCE:
+   KEEP THEM MOSTLY VISIBLE
+===================================================== */
+
+.investigation-board.has-active
+.evidence:not(.active) {
+
+    opacity: 0.88;
+
+    filter:
+        brightness(0.92);
+}
+
+
+.evidence.active {
+    z-index: 200;
+
+    transform:
+        translateY(-35px)
+        scale(1.22)
+        rotate(0deg) !important;
+
+    filter:
+        drop-shadow(
+            0 35px 45px
+            rgba(0,0,0,0.9)
+        );
+}
+
+
+
+/* =====================================================
+   BOARD LABELS
+===================================================== */
+
+.board-label {
+    position: absolute;
+
+    z-index: 3;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(230,220,200,0.55);
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.label-1 {
+    left: 4%;
+    top: 18%;
+}
+
+
+.label-2 {
+    right: 25%;
+    bottom: 15%;
+}
+
+
+.label-3 {
+    left: 37%;
+    top: 9%;
+}
+
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-button {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 48px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 500;
+
+    min-width: 230px;
+
+    height: 50px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    border:
+        1px solid
+        rgba(218, 203, 174, 0.65);
+
+    background:
+        rgba(18, 15, 12, 0.88);
+
+    color: #e7dbc5;
+
+    backdrop-filter:
+        blur(6px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.login-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border:
+        1px solid
+        rgba(218, 203, 174, 0.15);
+
+    pointer-events: none;
+
+}
+
+
+.login-text {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.login-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    border:
+        1px solid
+        rgba(190, 41, 41, 0.7);
+
+    color: #c33131;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.login-line {
+
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+
+    bottom: 5px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(178,30,30,0.8),
+            transparent
+        );
+
+    opacity: 0.6;
+
+}
+
+
+.login-button:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-5px);
+
+    background:
+        rgba(36, 26, 20, 0.94);
+
+    border-color:
+        rgba(212, 54, 54, 0.85);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,0.6),
+        0 0 25px
+        rgba(160,30,30,0.12);
+
+}
+
+
+.login-button:hover .login-icon {
+
+    transform:
+        translateX(3px);
+
+    background:
+        rgba(150, 25, 25, 0.15);
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.board-footer {
+
+    position: absolute;
+
+    bottom: 17px;
+
+    left: 35px;
+    right: 35px;
+
+    z-index: 20;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(230,220,200,0.55);
+}
+
+
+
+/* =====================================================
+   EVIDENCE MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0,0,0,0.8);
+
+    backdrop-filter:
+        blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        0.35s ease;
+}
+
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width:
+        min(500px, 100%);
+
+    padding: 50px;
+
+    background:
+        #d9c9a7;
+
+    color:
+        #29231c;
+
+    transform:
+        translateY(30px)
+        rotate(-1deg);
+
+    transition:
+        0.4s ease;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.7);
+}
+
+
+.modal.show
+.modal-content {
+
+    transform:
+        translateY(0)
+        rotate(0deg);
+}
+
+
+.modal-content > span {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    color:
+        #a01e1e;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+}
+
+
+.modal-content h2 {
+
+    margin: 12px 0;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 34px;
+}
+
+
+.modal-content p {
+
+    line-height: 1.7;
+
+    color:
+        #51473b;
+}
+
+
+.close-btn {
+
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+    color:
+        #30271e;
+}
+
+
+.investigate-btn {
+
+    margin-top: 25px;
+
+    padding:
+        12px 20px;
+
+    border:
+        1px solid #493d30;
+
+    background:
+        #30271e;
+
+    color:
+        #eee2ce;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* =====================================================
+   LOGIN MODAL
+===================================================== */
+
+.login-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(5, 4, 3, 0.82);
+
+    backdrop-filter:
+        blur(14px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.login-modal.show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+
+/* =====================================================
+   LOGIN PANEL
+===================================================== */
+
+.login-panel {
+
+    position: relative;
+
+    width:
+        min(430px, 100%);
+
+    padding:
+        42px 42px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d8c6a2,
+            #e9dbb9 55%,
+            #cab488
+        );
+
+    color:
+        #2c261f;
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,0.75),
+
+        inset 0 0 40px
+        rgba(70,50,25,0.09);
+
+    clip-path:
+        polygon(
+            1% 2%,
+            98% 0%,
+            100% 98%,
+            2% 100%,
+            0% 5%
+        );
+
+    transform:
+        translateY(35px)
+        rotate(-1deg)
+        scale(0.97);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.login-modal.show
+.login-panel {
+
+    transform:
+        translateY(0)
+        rotate(0deg)
+        scale(1);
+}
+
+
+
+/* =====================================================
+   CLOSE LOGIN
+===================================================== */
+
+.login-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 19px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #44392d;
+}
+
+
+
+/* =====================================================
+   LOGIN HEADER
+===================================================== */
+
+.login-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 14px;
+
+    border-bottom:
+        1px solid
+        rgba(55,45,35,0.25);
+}
+
+
+.login-classification {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #8e1818;
+}
+
+
+.login-case {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #5e5140;
+}
+
+
+
+/* =====================================================
+   LOGIN HEADING
+===================================================== */
+
+.login-heading {
+
+    padding:
+        28px 0 25px;
+}
+
+
+.login-heading > span {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #8f1d1d;
+}
+
+
+.login-heading h2 {
+
+    margin-top: 8px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+}
+
+
+.login-heading p {
+
+    margin-top: 14px;
+
+    max-width: 320px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color: #665948;
+}
+
+
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.input-group {
+
+    margin-bottom: 19px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #554938;
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    height: 46px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid
+        rgba(65,53,41,0.35);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,0.27);
+
+    color: #30291f;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.input-group input::placeholder {
+
+    color:
+        rgba(70,60,48,0.5);
+
+}
+
+
+.input-group input:focus {
+
+    border-color:
+        #8f2222;
+
+    background:
+        rgba(255,255,255,0.45);
+
+}
+
+
+
+/* =====================================================
+   ACCESS BUTTON
+===================================================== */
+
+.access-button {
+
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 8px;
+
+    padding:
+        0 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border:
+        1px solid #3c3126;
+
+    background:
+        #30271f;
+
+    color:
+        #eee1ca;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.access-button:hover {
+
+    background:
+        #7f1d1d;
+
+    transform:
+        translateY(-2px);
+}
+
+
+
+/* =====================================================
+   LOGIN STATUS
+===================================================== */
+
+.login-status {
+
+    margin-top: 16px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid
+        rgba(55,45,35,0.2);
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        #66705b;
+
+}
+
+
+.login-status.error {
+
+    color:
+        #981e1e;
+}
+
+
+
+/* =====================================================
+   LOGIN FOOTER
+===================================================== */
+
+.login-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 22px;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(65,55,43,0.55);
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    * {
+        cursor: auto;
+    }
+
+
+    .custom-cursor {
+        display: none;
+    }
+
+
+    .case-file {
+        width: 330px;
+    }
+
+
+    .case-paper {
+        padding:
+            50px 25px 40px;
+    }
+
+
+    .case-paper h1 {
+        font-size: 48px;
+    }
+
+
+    .evidence {
+        width: 180px;
+    }
+
+
+    .login-button {
+        bottom: 50px;
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: auto;
+    }
+
+
+    .investigation-board {
+
+        min-height: 1000px;
+
+        height: 1000px;
+
+    }
+
+
+    .case-file {
+        width: 290px;
+    }
+
+
+    .evidence {
+        width: 145px;
+    }
+
+
+    .evidence-1 {
+        top: 13%;
+        left: 3%;
+    }
+
+
+    .evidence-2 {
+        top: 13%;
+        right: 3%;
+    }
+
+
+    .evidence-3 {
+        bottom: 12%;
+        left: 3%;
+    }
+
+
+    .evidence-4 {
+        bottom: 12%;
+        right: 3%;
+    }
+
+
+    .board-label {
+        display: none;
+    }
+
+
+    .board-footer {
+
+        left: 15px;
+        right: 15px;
+
+        font-size: 7px;
+
+    }
+
+
+    .login-button {
+
+        bottom: 55px;
+
+        min-width: 205px;
+
+        height: 46px;
+
+    }
+
+
+    .login-text {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .login-panel {
+
+        padding:
+            35px 25px 25px;
+
+    }
+
+
+    .login-heading h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .login-footer {
+
+        flex-direction: column;
+
+        gap: 6px;
+
+    }
+
+}
